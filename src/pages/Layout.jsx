@@ -20,10 +20,10 @@ function Layout() {
 
   const navItems = [
     { path: '/', label: '홈', icons: [HomeIconOutline, HomeIconFilled] },
-    { path: '/contact', label: '연락처', icons: [ContactIconOutline, ContactIconFilled] },
-    { path: '/profile', label: '프로필', icons: [ProfileIconOutline, ProfileIconFilled] },
-    { path: '/projects', label: '프로젝트', icons: [ProjectIconOutline, ProjectIconFilled] },
-    { path: '/setting', label: '세팅', icons: [SettingIconOutline, SettingIconFilled] },
+    { path: 'contact', label: '연락처', icons: [ContactIconOutline, ContactIconFilled] },
+    { path: 'profile', label: '프로필', icons: [ProfileIconOutline, ProfileIconFilled] },
+    { path: 'projects', label: '프로젝트', icons: [ProjectIconOutline, ProjectIconFilled] },
+    { path: 'setting', label: '세팅', icons: [SettingIconOutline, SettingIconFilled] },
   ];
 
   return (

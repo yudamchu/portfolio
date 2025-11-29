@@ -13,13 +13,20 @@ export const router = createBrowserRouter([
         path:'/',
         Component: Layout,
         children:[
-            {index: true, Component: MainPage},
-            {path: '/welcome', Component: WelcomePage},
-            {path: '/project', Component: ProjectPage},
-            {path: '/blog', Component: BlogPage},
-            {path: '/contact', Component: ContactPage},
-            {path: '/profile', Component: ProfilePage},
-            {path: '/setting', Component: SettingPage},
+            {
+                path: '/', 
+                Component: MainPage,
+                children:[
+                    {index: true, Component: WelcomePage},
+                    {path: 'project', Component: ProjectPage},
+                    {path: 'blog', Component: BlogPage},
+                    {path: 'contact', Component: ContactPage},
+                    {path: 'profile', Component: ProfilePage},
+                    {path: 'projects', Component: ProjectPage},
+                    {path: 'setting', Component: SettingPage},
+                ]
+            },
+            
 
         ]
         

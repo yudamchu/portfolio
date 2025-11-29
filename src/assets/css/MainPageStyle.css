@@ -81,6 +81,10 @@
     margin-top: 10px;
 }
 
+.works, .path-btn{
+    cursor: pointer;
+}
+
 .path-btn:hover,
 .works:hover{
     background-color: rgba(255, 255, 255, 0.082);
