@@ -1,0 +1,12 @@
+@charset 'utf-8';
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.welcome-container {
+  height: 100vh;
+  background: linear-gradient(to bottom, #f6ebfa 0%, #ffffff 30%);
+  padding: 20px;
+}

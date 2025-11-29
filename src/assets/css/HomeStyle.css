@@ -1,0 +1,158 @@
+@charset 'UTF-8';
+
+/* ========== Reset & 기본 ========== */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #3f0e40;
+  font-family: "Slack-Lato","Slack-Fractions","appleLogo",sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== 전체 컨테이너 ========== */
+.home-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* 위에 헤더, 아래에 바디 */
+}
+
+/* ========== 헤더 ========== */
+.header {
+  height: 30px;
+  width: 100%;
+  background-color: #3f0e40;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  gap: 12px;
+}
+
+.nav-box {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-box svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 8px;
+  border-radius: 6px;
+  width: 500px;
+}
+
+.search-box svg {
+  width: 18px;
+  height: 18px;
+  color: white;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  margin-left: 8px;
+  font-size: 14px;
+  width: 160px;
+}
+
+/* ========== 메인 바디 (사이드바 + 컨텐츠) ========== */
+.body {
+  flex: 1;
+  display: flex;
+  height: calc(100vh - 50px);
+}
+
+/* ========== 좌측 네비게이션 ========== */
+.home-nav {
+  width: 70px;
+  background-color: #3f0e40;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.my-icon {
+  width: 38px;
+  height: 38px;
+  background-color: #d1d2d380;
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.button-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+}
+
+.home-btn {
+  width: 38px;
+  height: 38px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.home-btn:hover,
+.home-btn.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-icon {
+  width: 20px;
+}
+
+.home-btn:hover .btn-icon svg {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
+.btn-label {
+  text-align: center;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+/* ========== 본문 컨텐츠 영역 ========== */
+.content {
+  flex: 1;
+  border-radius: 9px;
+  background-color: white;
+  margin: 10px;
+  overflow: auto;
+}
