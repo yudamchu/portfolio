@@ -30,8 +30,8 @@ function Layout() {
     <div className="home-container">
       <header className="header">
         <div className='nav-box'>
-          <ArrowLeftIcon/>
-          <ArrowRightIcon/>
+          <ArrowLeftIcon onClick={() => navigate(-1)}/>
+          <ArrowRightIcon onClick={() => navigate(1)}/>
           <HistoryIcon/>
         </div>
         <div className='search-box'>

@@ -9,14 +9,17 @@ import {
   ChannelIcon
 } from '../assets/Icons/MainPageIcons';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 
 function MainPage() {
   const navigate = useNavigate();
   const location = useLocation();
+  const historyStack = useRef([]);
 
   const [isResizing, setIsResizing] = useState(false);
   const [menuWidth, setMenuWidth] = useState(200);
   const [isDrop, setIsDrop] = useState(true); // 기본 open
+
 
   // 메뉴 데이터 구조화
   const menuData = [
@@ -56,9 +59,17 @@ function MainPage() {
     if (current.startsWith('/blog')) return 'blog';
 
     return '';
+
   };
 
   const activeId = getActiveId();
+
+
+  //방문기록
+   useEffect(() => {
+    historyStack.current.push(location.pathname);
+    console.log("방문 기록:", historyStack.current);
+  }, [location.pathname]);
 
   // 리사이저 시작
   const startResize = () => {
