@@ -1,32 +1,36 @@
-*{
+/* MainPageStyle.module.css */
+
+* {
     margin: 0;
     box-sizing: border-box;
 }
 
-.main-container{
+/* 전체 컨테이너 */
+.mainContainer {
     width: 100%;
     height: 100%;
-    display: grid; /*✅*/
-    grid-template-columns: 200px 1fr; /* 기본값 */
-
+    display: grid;
+    grid-template-columns: 200px 1fr;
 }
 
-.main-container svg{
+/* 사이드바 전용 SVG 스타일 */
+.sidebarIcon {
     width: 20px;
     height: 20px;
     color: rgba(255, 255, 255, 0.748);
     cursor: pointer;
 }
 
-.menu-box{
-    /*width: 300px;*//*✅*/
+/* 사이드바 */
+.menuBox {
     background-color: rgb(81, 41, 85);
     color: rgba(255, 255, 255, 0.748);
     position: relative;
     padding: 8px;
 }
 
-.icon-box{
+/* 상단 */
+.iconBox {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,13 +39,13 @@
     padding-top: 5px;
 }
 
-.name-box{
+.nameBox {
     font-weight: bold;
     font-size: 20px;
     padding: 10px;
 }
 
-.set-icons{
+.setIcons {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,7 +53,7 @@
     padding: 10px;
 }
 
-.set-icons div{
+.setIcons div {
     border: 1px solid rgba(255, 255, 255, 0.346);
     border-radius: 7px;
     width: 29px;
@@ -57,11 +61,12 @@
     text-align: center;
 }
 
-.set-icons svg{
+.setIcons svg {
     width: 15px;
 }
 
-.sub-menu{
+/* 메뉴 */
+.subMenu {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -69,11 +74,10 @@
     margin-top: 20px;
 }
 
-.sub-menu li{
+.subMenu li {
     border-radius: 7px;
     width: 100%;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: left;
     gap: 10px;
@@ -81,48 +85,47 @@
     margin-top: 10px;
 }
 
-.works, .path-btn{
+.works,
+.pathBtn {
     cursor: pointer;
 }
 
-.path-btn:hover,
-.works:hover{
+.pathBtn:hover,
+.works:hover {
     background-color: rgba(255, 255, 255, 0.082);
 }
 
-.path-btn.active , .path-btn.active svg{
- background-color: #f7edfe;
- color:  rgb(81, 41, 85);
+/* active 상태 */
+.active,
+.active svg {
+    background-color: #f7edfe !important;
+    color: rgb(81, 41, 85) !important;
 }
-.sub-menu svg{
+
+.subMenu svg {
     padding-top: 2px;
-    padding-bottom: 0;
 }
 
-
-.drop-down{
+/* 드롭다운 */
+.dropDown {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.drop-down div{
+.dropDown div {
     gap: 10px;
     padding: 3px 10px;
-    text-decoration: none;
     color: rgba(255, 255, 255, 0.748);
     border-radius: 7px;
 }
 
-
-.drop-down svg{
+.dropDown svg {
     padding-top: 5px;
-    padding-bottom: 0;
 }
 
-
-/*리사이징*//*✅*/
-.resize{
+/* 리사이즈 */
+.resize {
     width: 4px;
     cursor: col-resize;
     position: absolute;
@@ -131,6 +134,12 @@
     height: 100%;
 }
 
-.resize:hover{
+.resize:hover {
     background-color: rgb(113, 172, 223);
+}
+
+/* content 영역 */
+.contents {
+    width: 100%;
+    height: 100%;
 }

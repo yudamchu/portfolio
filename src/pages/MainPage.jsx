@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import '../assets/css/MainPageStyle.css';
+import React, { useState, useEffect, useRef } from 'react';
+import styles from '../assets/css/MainPageStyle.module.css';
+
 import {
   CaretRightIcon,
   ChevronDownIcon,
@@ -8,8 +9,8 @@ import {
   ThreadsIcon,
   ChannelIcon
 } from '../assets/Icons/MainPageIcons';
+
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
 
 function MainPage() {
   const navigate = useNavigate();
@@ -18,10 +19,13 @@ function MainPage() {
 
   const [isResizing, setIsResizing] = useState(false);
   const [menuWidth, setMenuWidth] = useState(200);
-  const [isDrop, setIsDrop] = useState(true); // 기본 open
+  const [isDrop, setIsDrop] = useState(true);
 
+  /** SVG 아이콘 클래스 자동 적용 함수 */
+  const renderIcon = (icon) => {
+    return React.cloneElement(icon, { className: styles.sidebarIcon });
+  };
 
-  // 메뉴 데이터 구조화
   const menuData = [
     {
       id: 'welcome',
@@ -50,7 +54,6 @@ function MainPage() {
     },
   ];
 
-  // 현재 URL 기반 active 메뉴 자동 찾기
   const getActiveId = () => {
     const current = location.pathname;
 
@@ -59,24 +62,19 @@ function MainPage() {
     if (current.startsWith('/blog')) return 'blog';
 
     return '';
-
   };
 
   const activeId = getActiveId();
 
-
-  //방문기록
-   useEffect(() => {
+  useEffect(() => {
     historyStack.current.push(location.pathname);
     console.log("방문 기록:", historyStack.current);
   }, [location.pathname]);
 
-  // 리사이저 시작
   const startResize = () => {
     setIsResizing(true);
   };
 
-  // 리사이저 실행
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (isResizing) {
@@ -100,48 +98,46 @@ function MainPage() {
   }, [isResizing]);
 
   return (
-    <div className='main-container' style={{ gridTemplateColumns: `${menuWidth}px 1fr` }}>
-      <nav className='menu-box'>
+    <div className={styles.mainContainer} style={{ gridTemplateColumns: `${menuWidth}px 1fr` }}>
+      <nav className={styles.menuBox}>
         
-        {/* 상단 아이콘 영역 */}
-        <div className='icon-box'>
-          <div className='name-box'>Yudam</div>
-          <div className='set-icons'>
-            <div><SettingsIcon /></div>
-            <div><ComposeIcon /></div>
+        {/* 상단 */}
+        <div className={styles.iconBox}>
+          <div className={styles.nameBox}>Yudam</div>
+          <div className={styles.setIcons}>
+            <div>{renderIcon(<SettingsIcon />)}</div>
+            <div>{renderIcon(<ComposeIcon />)}</div>
           </div>
         </div>
 
         {/* 메뉴 */}
-        <ul className='sub-menu'>
+        <ul className={styles.subMenu}>
           {menuData.map((menu) =>
             !menu.children ? (
-              // 일반 메뉴
               <li
                 key={menu.id}
-                className={`path-btn ${activeId === menu.id ? 'active' : ''}`}
+                className={`${styles.pathBtn} ${activeId === menu.id ? styles.active : ''}`}
                 onClick={() => navigate(menu.path)}
               >
-                <div>{menu.icon}</div>
+                <div>{renderIcon(menu.icon)}</div>
                 <div>{menu.label}</div>
               </li>
             ) : (
-              // 드롭다운 메뉴
               <React.Fragment key={menu.id}>
-                <li className='works' onClick={() => setIsDrop(prev => !prev)}>
-                  <div>{menu.icon}</div>
+                <li className={styles.works} onClick={() => setIsDrop(prev => !prev)}>
+                  <div>{renderIcon(menu.icon)}</div>
                   <div>{menu.label}</div>
                 </li>
 
                 {isDrop && (
-                  <div className='drop-down'>
+                  <div className={styles.dropDown}>
                     {menu.children.map((child) => (
                       <div
                         key={child.id}
-                        className={`path-btn ${activeId === child.id ? 'active' : ''}`}
+                        className={`${styles.pathBtn} ${activeId === child.id ? styles.active : ''}`}
                         onClick={() => navigate(child.path)}
                       >
-                        {child.icon} {child.label}
+                        {renderIcon(child.icon)} {child.label}
                       </div>
                     ))}
                   </div>
@@ -152,11 +148,10 @@ function MainPage() {
         </ul>
 
         {/* 리사이즈 바 */}
-        <div className='resize' onMouseDown={startResize}></div>
+        <div className={styles.resize} onMouseDown={startResize}></div>
       </nav>
 
-      {/* 오른쪽 콘텐츠 */}
-      <div className='contents'>
+      <div className={styles.contents}>
         <Outlet />
       </div>
     </div>

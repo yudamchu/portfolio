@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-.welcome-container {
+.welcomeContainer {
   height: 100vh;
   background: linear-gradient(to bottom, #f6ebfa 0%, #ffffff 30%);
   padding: 20px;
@@ -16,6 +16,6 @@
   gap: 10px;
 }
 
-.welcome-icon{
+.welcomeIcon{
    width: 32px;
 }
