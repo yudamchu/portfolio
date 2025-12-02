@@ -5,10 +5,7 @@
     box-sizing: border-box;
 }
 
-.welcomeContainer {
-  height: 100vh;
-  background: linear-gradient(to bottom, #f6ebfa 0%, #ffffff 30%);
-  padding: 20px;
+.welcomeContainer{
   display: flex;
   flex-direction: row;
   align-items: start;
@@ -19,3 +16,8 @@
 .welcomeIcon{
    width: 32px;
 }
+
+.introduceBox{
+  font-size: 25px;
+}
+

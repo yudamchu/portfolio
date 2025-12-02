@@ -15,6 +15,17 @@ function InputCard({ inputArr, setInputArr }) {
     setInput("");
   };
 
+  const handleKeyDown = (e) => {
+    // Shift + Enter → 줄바꿈 허용
+    if (e.key === "Enter" && e.shiftKey) return;
+
+    // Enter → 메시지 전송
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleInput(e);
+    }
+  };
+
   return (
     <form className={styles.inputForm} onSubmit={handleInput}>
       {/* --- 툴바 영역 --- */}
@@ -31,6 +42,7 @@ function InputCard({ inputArr, setInputArr }) {
       <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
           placeholder="내용을 입력해주세요."
           className={styles.textArea}
         />

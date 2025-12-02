@@ -3,9 +3,9 @@
     max-height: 610px;
     min-height: 610px;
     overflow-y: auto;
-    padding: 10px;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(to bottom, #f6ebfa 0%, #ffffff 30%);
 }
 
 .contentBox {
@@ -13,4 +13,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 20px;
+    align-items: start;
+    justify-content: left;
 }

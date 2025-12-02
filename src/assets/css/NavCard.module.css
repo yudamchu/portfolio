@@ -1,0 +1,19 @@
+.navCardContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    width: 200px;
+    height: 250px;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 17px 12px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.navCardContainer:hover{
+    transform: translateY(-3px); /* Y축 위로 이동 */
+    box-shadow: 0 6px 15px rgba(3, 0, 2, 0.051); /* 선택: 살짝 그림자 */    
+}
