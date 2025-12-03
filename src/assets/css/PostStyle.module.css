@@ -9,6 +9,11 @@
     gap: 10px;
 }
 
+.postContainer:hover{
+    background-color: #fcfcfc;
+    cursor: pointer;
+}
+
 .profileImg{
     width: 40px;
     border-radius: 10px;
@@ -17,4 +22,6 @@
 
 .nickname{
     font-weight: bold;
+    padding-top: 2px;
+    padding-bottom: 3px;
 }

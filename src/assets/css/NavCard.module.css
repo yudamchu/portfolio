@@ -9,6 +9,12 @@
     height: 250px;
     padding: 17px 12px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-decoration: none;
+    color: inherit;  
+}
+
+.navCardContainer:visited {
+    color: inherit;          /* 방문 후 보라색 방지 */
 }
 
 .navCardContainer:hover{

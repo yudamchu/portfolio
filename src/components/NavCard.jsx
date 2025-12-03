@@ -1,18 +1,31 @@
 import React from 'react';
-import styles from "../assets/css/NavCard.module.css"
+import styles from "../assets/css/NavCard.module.css";
 import { useNavigate } from 'react-router-dom';
 
-function NavCard({link,backgroundColor, cardTitle, cardInfo, cardImg}) {
+function NavCard({ link, href, backgroundColor, cardTitle, cardInfo, cardImg }) {
     const navigate = useNavigate();
- 
+
+    // 내부 링크 클릭 시
+    const handleClick = () => {
+        if (link) navigate(link);
+    };
+
+    // 외부 링크일 경우 <a> 래핑
+    const Wrapper = href ? "a" : "div";
+
     return (
-        <div className={styles.navCardContainer} 
-            onClick={() => navigate(link)}
-            style={{backgroundColor}}>
+        <Wrapper
+            className={styles.navCardContainer}
+            onClick={href ? undefined : handleClick}
+            href={href}
+            target={href ? "_blank" : undefined}
+            rel={href ? "noopener noreferrer" : undefined}
+            style={{ backgroundColor }}
+        >
             <h3 className={styles.navCardText}>{cardTitle}</h3>
             <p className={styles.navCardInfo}>{cardInfo}</p>
-            <img src={cardImg} alt={cardImg} className={styles.navCardImg}/>
-        </div>
+            <img src={cardImg} alt={cardImg} className={styles.navCardImg} />
+        </Wrapper>
     );
 }
 

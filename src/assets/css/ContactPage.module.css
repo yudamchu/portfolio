@@ -9,3 +9,38 @@
 .contactHeader img{
     width: 60px;
 }
+
+.introduceBox{
+  font-size: 25px;
+}
+
+.postContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* 한 줄 데이터 */
+.infoRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.infoLabel {
+    width: 150px;        
+    font-weight: 600;
+}
+
+/* a링크 */
+.href {
+    text-decoration: none;
+    color: #000000;
+}
+
+.href:hover {
+    color: #7c45ff;     
+}

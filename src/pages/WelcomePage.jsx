@@ -38,7 +38,7 @@ function WelcomePage(props) {
             <ContentBox>
             <div className={styles.welcomeContainer}>
                 <img src='waving-hand.png' alt="welcome-icon" className={styles.welcomeIcon}/>
-                    <h1>Welcome! 프론트앤드 개발자 추유담의 포트폴리오에 오신 걸 환영합니다!</h1>
+                    <h1>Welcome! 프론트엔드 개발자 추유담의 포트폴리오에 오신 걸 환영합니다!</h1>
                 <img src='woman-technologist.png' alt="welcome-icon" className={styles.welcomeIcon} />
            </div>
            <div className={styles.introduceBox}>

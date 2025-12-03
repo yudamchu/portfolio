@@ -16,6 +16,7 @@ function InputCard({ inputArr, setInputArr }) {
   };
 
   const handleKeyDown = (e) => {
+
     // Shift + Enter → 줄바꿈 허용
     if (e.key === "Enter" && e.shiftKey) return;
 
@@ -42,7 +43,7 @@ function InputCard({ inputArr, setInputArr }) {
       <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
+          onKeyUp={handleKeyDown}
           placeholder="내용을 입력해주세요."
           className={styles.textArea}
         />
