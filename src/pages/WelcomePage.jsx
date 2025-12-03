@@ -11,6 +11,27 @@ import CardBox from '../components/CardBox';
 function WelcomePage(props) {
     const [inputArr, setInputArr] = useState([]);
 
+    const cardContents = [
+        {
+            title: "프로필 보기",
+            description: "기술 역량과 이력을 확인하세요.",
+            imgSrc: 'slack-card-img3.png',
+            link: '/profile',
+            backgroundColor: '#f7eeff'
+        },
+        {
+            title: "프로젝트 보기",
+            imgSrc: 'slack-card-img1.png',
+            link: '/project',
+            backgroundColor: '#E0FFFF'
+        },
+        {
+            title: "연락처 보기",
+            imgSrc: 'slack-card-img4.png',
+            link: '/contact',
+            backgroundColor: '#FFFACD'
+        }
+    ]
     return (
         <>
         <PageHeader pageName={"welcome"}/>
@@ -23,16 +44,18 @@ function WelcomePage(props) {
            <div className={styles.introduceBox}>
                 <p>안녕하세요. 고객의 시선에서 UI를 구현하는 프론트엔드 개발자 추유담 입니다.</p>
                 <CardBox>
-                    <NavCard link={'/profile'}>
-                        <p>프로필 보기</p>
-                        <p style={{fontSize: "15px", fontWeight:"normal"}}>기술 역량과 이력을 확인하세요.</p>
-                    </NavCard>
-                    <NavCard link={'/project'}>
-                        <p>프로젝트 보기</p>
-                    </NavCard>
-                    <NavCard link={'/contact'}>
-                        <p>연락처 보기</p>
-                    </NavCard>
+                    {
+                        cardContents.map((card, index) => (
+                            <NavCard 
+                                key={index}
+                                link={card.link}
+                                backgroundColor={card.backgroundColor}
+                                cardTitle={card.title}
+                                cardInfo={card.description}
+                                cardImg={card.imgSrc}
+                            />
+                        ))
+                    }
                 </CardBox>
             </div>
             {

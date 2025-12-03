@@ -1,0 +1,11 @@
+.contactHeader{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.contactHeader img{
+    width: 60px;
+}
