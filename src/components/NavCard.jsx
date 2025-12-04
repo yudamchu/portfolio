@@ -2,12 +2,13 @@ import React from 'react';
 import styles from "../assets/css/NavCard.module.css";
 import { useNavigate } from 'react-router-dom';
 
-function NavCard({ link, href, backgroundColor, cardTitle, cardInfo, cardImg }) {
+function NavCard({ link, ref, href, backgroundColor, cardTitle, cardInfo, cardImg }) {
     const navigate = useNavigate();
 
     // 내부 링크 클릭 시
     const handleClick = () => {
         if (link) navigate(link);
+        if (ref) ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     // 외부 링크일 경우 <a> 래핑

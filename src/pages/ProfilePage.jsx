@@ -7,9 +7,38 @@ import Post from '../components/post';
 import styles from '../assets/css/Profile.module.css';
 import { motion } from "framer-motion";
 import CardBox from '../components/CardBox';
+import { useRef } from 'react';
+import NavCard from '../components/NavCard';
 
 function ProfilePage(props) {
     const [inputArr, setInputArr] = useState([]);
+    const infoRef = useRef(null);
+    const skillsRef = useRef(null);
+    const memberRef = useRef(null);
+
+    const cardContents = [
+      {
+          title: "기본 정보",
+          description: "교육 및 이력 사항이 포함되어있어요",
+          imgSrc: 'slack-card-img7.png',
+          ref: infoRef,
+          backgroundColor: '#f7eeff'
+      },
+      {
+          title: "Skills",
+          description: "보유 기술 스택 알아보기",
+          imgSrc: 'slack-card-img8.png',
+          ref: skillsRef,
+          backgroundColor: '#E0FFFF'
+      },
+      {
+          title: "팀원으로서 저는",
+          description: "함께 일할 때의 제 모습을 소개합니다",
+          imgSrc: 'slack-card-img3.png',
+          ref: memberRef,
+          backgroundColor: '#FFFACD'
+      }
+    ]
     return (
         <div>
           <PageHeader pageName={"프로필"}/>
@@ -25,15 +54,29 @@ function ProfilePage(props) {
               <h1>About Me</h1>
             </div>
 
-            <p className={styles.introduceBox}>
-              안녕하세요! 사용자 니즈를 분석해 UI를 만드는 것을 즐기는 프론트엔드 개발자 추유담입니다.
-            </p>
+            <div className={styles.introduceBox}>
+              <p>안녕하세요! 사용자 니즈를 분석해 UI를 만드는 것을 즐기는 프론트엔드 개발자 추유담입니다.</p>
+              <CardBox>
+                    {
+                        cardContents.map((card, index) => (
+                            <NavCard
+                                key={index}
+                                ref={card.ref}
+                                backgroundColor={card.backgroundColor}
+                                cardTitle={card.title}
+                                cardInfo={card.description}
+                                cardImg={card.imgSrc}
+                            />
+                        ))
+                    }
+                </CardBox>
+            </div>
 
             {/* ----- ABOUT SECTION ----- */}
             <Post>
               <div className={styles.postContainer}>
               <div className={styles.introContainer}>
-                <h2>🥳 기본 정보</h2>
+                <h2 ref={infoRef}>🥳 기본 정보</h2>
                 <dl className={styles.profileList}>
                   <dt>이름</dt><dd>추유담</dd>
                   <dt>생년월일</dt><dd>1999.08.24</dd>
@@ -47,7 +90,7 @@ function ProfilePage(props) {
 
             {/* ----- SKILLS SECTION ----- */}
             <div className={styles.introContainer}>
-              <h2>🛠 Skills</h2>
+              <h2 ref={skillsRef}>🛠 Skills</h2>
               <p><strong>Languages</strong> — JavaScript, HTML5, CSS3</p>
               <p><strong>Frontend</strong> — React, Zustand, React Query, React Hook Form, CSS Modules, Media Queries, Vite</p>
               <p><strong>Tools</strong> — VS Code, IntelliJ, DBeaver, Postman</p>
@@ -56,7 +99,7 @@ function ProfilePage(props) {
 
             {/* ----- TEAMWORK SECTION ----- */}
             <div className={styles.introContainer}>
-              <h2>🤝 팀원으로서 저는</h2>
+              <h2 ref={memberRef}>🤝 팀원으로서 저는</h2>
               <ul className={styles.listStyle}>
                 <li>사용자 관점에서 문제를 해결하는 데 강점이 있습니다.</li>
                 <li>재사용성을 고려해 아토믹 단위로 컴포넌트를 설계하고 개발합니다.</li>
